@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bikash Saud | VFX Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="video-overlay" id="videoOverlay">
+    <div class="video-container">
+        <span class="close-video" onclick="closeVideo()">&times;</span>
+        <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+    </div>
+</div>
+
+<header>
+    <h2 class="logo">BIKASH <span>SAUD</span></h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#showreel">Showreel</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="home" id="home">
+    <div class="home-content">
+        <h3>Hi, I'm</h3>
+        <h1>Bikash <span>Saud</span></h1>
+        <h3>I'm a <span class="typing-text"></span></h3>
+        
+        <p>
+            I am a high-end VFX Compositor and Artist dedicated to the art of cinematic storytelling. 
+            By blending technical precision in <strong>Nuke</strong> and <strong>Silhouette</strong> with a deep 
+            understanding of light and motion, I transform complex visual challenges into seamless, 
+            photo-realistic reality for global film and streaming productions.
+        </p>
+        
+        <div style="display:flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+            <a href="#contact" class="btn" style="padding: 12px 30px; background: var(--main-color); border-radius: 50px; color: white; text-decoration: none; display: inline-block; font-weight: 600;">Hire Me</a>
+            <a href="#showreel" class="btn-showreel-hero">
+                <span class="pulse-dot"></span>
+                Watch Showreel
+            </a>
+        </div>
+
+        <div class="social-media">
+            <a href="https://youtube.com/@lordvizo?si=SZE7ky9B9sK4rnLy" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/bikash-saud-b040193b6" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/bikash_saud__" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1BMabC7wpB/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+    
+    <div class="hero-image">
+        <img src="profile.jpg" alt="Bikash Saud Profile">
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="about-container">
+        <div class="about-info">
+            <h2>About <span>Me</span></h2>
+            <p>
+                I am a dedicated VFX Artist and Compositor with a passion for creating seamless, cinematic visual effects. 
+                With expertise in Nuke and Silhouette, I focus on bringing complex imaginations to life through precise 
+                keying, tracking, and CG integration. I strive for excellence in every frame.
+            </p>
+        </div>
+        <div class="education">
+            <h2>My <span>Education</span></h2>
+            <div class="edu-box">
+                <h3>Sudurpaschimanchal Academy (SPA)</h3>
+                <p>+2 in Science | 2022 - 2024</p>
+                <a href="https://spa.edu.np/" target="_blank" style="color:var(--main-color); text-decoration:none;">Visit Website</a>
+            </div>
+            <div class="edu-box">
+                <h3>Amar Secondary School</h3>
+                <p>Secondary School (Grade 1-10) | Nepal</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== SHOWREEL SECTION ===================== -->
+<section class="showreel-section" id="showreel">
+
+    <!-- Cinematic top border -->
+    <div class="showreel-top-bar"></div>
+
+    <div class="showreel-inner">
+        <div class="showreel-header">
+            <p class="showreel-eyebrow"><span class="line"></span> VFX SHOWREEL <span class="line"></span></p>
+            <h2 class="showreel-title">OFFICIAL <span>SHOWREEL</span></h2>
+            <p class="showreel-subtitle">2025 · Compositing & Visual Effects</p>
+        </div>
+
+        <!-- Main Showreel Player -->
+        <div class="showreel-player-wrap" id="mainShowreelWrap">
+            <!-- Thumbnail / Preview State -->
+            <div class="showreel-thumb" id="showreelThumb">
+                <video class="showreel-preview-video" id="previewVid" src="Bikash_Saud_vfx_showreel.mp4" muted loop playsinline></video>
+                <div class="showreel-thumb-overlay">
+                    <div class="showreel-play-btn" onclick="launchShowreel()">
+                        <div class="play-ring ring-outer"></div>
+                        <div class="play-ring ring-inner"></div>
+                        <i class="fas fa-play play-icon"></i>
+                    </div>
+                    <div class="showreel-thumb-meta">
+                        <span class="film-tag"><i class="fas fa-film"></i> VFX Compositor</span>
+                        <span class="film-tag"><i class="fas fa-clock"></i> Bikash Saud · 2025</span>
+                    </div>
+                </div>
+                <!-- Cinematic scanlines -->
+                <div class="scanlines"></div>
+                <!-- Corner brackets -->
+                <div class="corner tl"></div>
+                <div class="corner tr"></div>
+                <div class="corner bl"></div>
+                <div class="corner br"></div>
+            </div>
+
+            <!-- Inline Player (shown after click) -->
+            <div class="showreel-inline-player" id="inlinePlayer">
+                <video id="showreelVideo" controls autoplay>
+                    <source src="Bikash_Saud_vfx_showreel.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <button class="close-inline-player" onclick="closeInlinePlayer()"><i class="fas fa-times"></i> Close</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Cinematic bottom border -->
+    <div class="showreel-bottom-bar"></div>
+</section>
+<!-- ===================== END SHOWREEL ===================== -->
+
+<!-- Fullscreen Video Overlay for Blackhole -->
+
+
+<section class="experience" id="experience">
+    <h2 class="section-title" id="proj-title">Work <span>Experience</span></h2>
+    
+    <div class="work-list">
+        <div class="work-item">
+            <h3>RESONANCE DIGITAL</h3>
+            <span class="date">( 2024 - Present )</span>
+            <p>. Responsible for compositing VFX shots for film and streaming productions including keying, rotoscoping, paint cleanup, camera tracking, and cg integration using Nuke.</p>
+        </div>
+    </div>
+
+    <div class="projects-container" id="folder-view">
+        <div class="project-card" onclick="alert('Folder is empty')">
+            <h3>Short Film</h3>
+            <div class="card-img">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500" style="opacity: 0.3;">
+            </div>
+        </div>
+
+        <div class="project-card" onclick="openVFX()">
+            <h3>Compositing & VFX</h3>
+            <div class="card-img">
+                <img src="https://img.youtube.com/vi/sdxW5whgHbU/maxresdefault.jpg">
+            </div>
+        </div>
+
+        <div class="project-card" onclick="alert('Folder is empty')">
+            <h3>Concept Art</h3>
+            <div class="card-img">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500" style="opacity: 0.3;">
+            </div>
+        </div>
+    </div>
+
+    <div id="movie-view">
+        <button onclick="closeVFX()" style="background:none; border: 1px solid var(--main-color); color:white; padding:10px 20px; border-radius:5px; cursor:pointer; margin-bottom:20px;">
+            <i class="fas fa-arrow-left"></i> Back to Folders
+        </button>
+        <div class="movie-grid">
+            <div class="movie-item" onclick="playVideo('https://www.youtube.com/embed/sdxW5whgHbU')">
+                <img src="https://img.youtube.com/vi/sdxW5whgHbU/maxresdefault.jpg">
+                <h4>Baaghi 4</h4>
+            </div>
+            <div class="movie-item" onclick="playVideo('https://www.youtube.com/embed/BKOVzHcjEIo')">
+                <img src="https://img.youtube.com/vi/BKOVzHcjEIo/maxresdefault.jpg">
+                <h4>Dhurandhar</h4>
+            </div>
+            <div class="movie-item" onclick="playVideo('https://www.youtube.com/embed/jsauQx_Fwrg')">
+                <img src="https://img.youtube.com/vi/jsauQx_Fwrg/maxresdefault.jpg">
+                <h4>Family Man - Season 3</h4>
+            </div>
+            <div class="movie-item" onclick="playVideo('https://www.youtube.com/embed/vMc_pWm7G7o')">
+                <img src="https://img.youtube.com/vi/vMc_pWm7G7o/maxresdefault.jpg">
+                <h4>Something Very Bad Is Going To Happen</h4>
+            </div>
+            <div class="movie-item" onclick="playVideo('https://www.youtube.com/embed/gkV9-kLasvM')">
+                <img src="https://img.youtube.com/vi/gkV9-kLasvM/maxresdefault.jpg">
+                <h4>Tell Me Lies</h4>
+            </div>
+            <div class="movie-item" onclick="playVideo('https://www.youtube.com/embed/0IqEM3Sstbg')">
+                <img src="https://img.youtube.com/vi/0IqEM3Sstbg/maxresdefault.jpg">
+                <h4>Agent From Above</h4>
+            </div>
+            <div class="movie-item" onclick="playVideo('https://www.youtube.com/embed/4bsjRq8kasA')">
+                <img src="https://img.youtube.com/vi/4bsjRq8kasA/maxresdefault.jpg">
+                <h4>Remarkably Bright Creatures</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="contact-container">
+        <h2>Contact <span>Me</span></h2>
+        
+        <div class="contact-options">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saudbikash01bbb@gmail.com" target="_blank" class="contact-card">
+                <i class="fas fa-envelope-open-text"></i>
+                <h4>Email Me</h4>
+                <p>saudbikash01bbb@gmail.com</p>
+            </a>
+
+            <a href="tel:+919082254975" class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Call Me</h4>
+                <p>+91 9082254975</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
